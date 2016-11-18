@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.housecenter.dao.DlfcCompanyMapper" >
+  <resultMap id="BaseResultMap" type="com.housecenter.entity.DlfcCompany" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="cName" property="cname" jdbcType="VARCHAR" />
+    <result column="cFullName" property="cfullname" jdbcType="VARCHAR" />
+    <result column="legalPerson" property="legalperson" jdbcType="VARCHAR" />
+    <result column="legelTel" property="legeltel" jdbcType="VARCHAR" />
+    <result column="createUser" property="createuser" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="updateUser" property="updateuser" jdbcType="VARCHAR" />
+    <result column="updateTime" property="updatetime" jdbcType="TIMESTAMP" />
+    <result column="cDeleteFlag" property="cdeleteflag" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, cName, cFullName, legalPerson, legelTel, createUser, createTime, updateUser, 
+    updateTime, cDeleteFlag
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from dlfc_company
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from dlfc_company
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.housecenter.entity.DlfcCompany" >
+    insert into dlfc_company (id, cName, cFullName, 
+      legalPerson, legelTel, createUser, 
+      createTime, updateUser, updateTime, 
+      cDeleteFlag)
+    values (#{id,jdbcType=VARCHAR}, #{cname,jdbcType=VARCHAR}, #{cfullname,jdbcType=VARCHAR}, 
+      #{legalperson,jdbcType=VARCHAR}, #{legeltel,jdbcType=VARCHAR}, #{createuser,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{updateuser,jdbcType=VARCHAR}, #{updatetime,jdbcType=TIMESTAMP}, 
+      #{cdeleteflag,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.housecenter.entity.DlfcCompany" >
+    insert into dlfc_company
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="cname != null" >
+        cName,
+      </if>
+      <if test="cfullname != null" >
+        cFullName,
+      </if>
+      <if test="legalperson != null" >
+        legalPerson,
+      </if>
+      <if test="legeltel != null" >
+        legelTel,
+      </if>
+      <if test="createuser != null" >
+        createUser,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="updateuser != null" >
+        updateUser,
+      </if>
+      <if test="updatetime != null" >
+        updateTime,
+      </if>
+      <if test="cdeleteflag != null" >
+        cDeleteFlag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="cname != null" >
+        #{cname,jdbcType=VARCHAR},
+      </if>
+      <if test="cfullname != null" >
+        #{cfullname,jdbcType=VARCHAR},
+      </if>
+      <if test="legalperson != null" >
+        #{legalperson,jdbcType=VARCHAR},
+      </if>
+      <if test="legeltel != null" >
+        #{legeltel,jdbcType=VARCHAR},
+      </if>
+      <if test="createuser != null" >
+        #{createuser,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateuser != null" >
+        #{updateuser,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cdeleteflag != null" >
+        #{cdeleteflag,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.housecenter.entity.DlfcCompany" >
+    update dlfc_company
+    <set >
+      <if test="cname != null" >
+        cName = #{cname,jdbcType=VARCHAR},
+      </if>
+      <if test="cfullname != null" >
+        cFullName = #{cfullname,jdbcType=VARCHAR},
+      </if>
+      <if test="legalperson != null" >
+        legalPerson = #{legalperson,jdbcType=VARCHAR},
+      </if>
+      <if test="legeltel != null" >
+        legelTel = #{legeltel,jdbcType=VARCHAR},
+      </if>
+      <if test="createuser != null" >
+        createUser = #{createuser,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateuser != null" >
+        updateUser = #{updateuser,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null" >
+        updateTime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cdeleteflag != null" >
+        cDeleteFlag = #{cdeleteflag,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.housecenter.entity.DlfcCompany" >
+    update dlfc_company
+    set cName = #{cname,jdbcType=VARCHAR},
+      cFullName = #{cfullname,jdbcType=VARCHAR},
+      legalPerson = #{legalperson,jdbcType=VARCHAR},
+      legelTel = #{legeltel,jdbcType=VARCHAR},
+      createUser = #{createuser,jdbcType=VARCHAR},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      updateUser = #{updateuser,jdbcType=VARCHAR},
+      updateTime = #{updatetime,jdbcType=TIMESTAMP},
+      cDeleteFlag = #{cdeleteflag,jdbcType=BIT}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

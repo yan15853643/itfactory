@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.housecenter.dao.DlfcUserMapper" >
+  <resultMap id="BaseResultMap" type="com.housecenter.entity.DlfcUser" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="uNo" property="uno" jdbcType="VARCHAR" />
+    <result column="uAccount" property="uaccount" jdbcType="VARCHAR" />
+    <result column="uPassword" property="upassword" jdbcType="VARCHAR" />
+    <result column="uName" property="uname" jdbcType="VARCHAR" />
+    <result column="uStatus" property="ustatus" jdbcType="BIT" />
+    <result column="uLiaisons" property="uliaisons" jdbcType="VARCHAR" />
+    <result column="uLiaisonsTel" property="uliaisonstel" jdbcType="VARCHAR" />
+    <result column="uCellphone" property="ucellphone" jdbcType="VARCHAR" />
+    <result column="uEmail" property="uemail" jdbcType="VARCHAR" />
+    <result column="createUser" property="createuser" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="updateUser" property="updateuser" jdbcType="VARCHAR" />
+    <result column="uDeleteFlag" property="udeleteflag" jdbcType="BIT" />
+    <result column="upadteTime" property="upadtetime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, uNo, uAccount, uPassword, uName, uStatus, uLiaisons, uLiaisonsTel, uCellphone, 
+    uEmail, createUser, createTime, updateUser, uDeleteFlag, upadteTime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from dlfc_user
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from dlfc_user
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.housecenter.entity.DlfcUser" >
+    insert into dlfc_user (id, uNo, uAccount, 
+      uPassword, uName, uStatus, 
+      uLiaisons, uLiaisonsTel, uCellphone, 
+      uEmail, createUser, createTime, 
+      updateUser, uDeleteFlag, upadteTime
+      )
+    values (#{id,jdbcType=VARCHAR}, #{uno,jdbcType=VARCHAR}, #{uaccount,jdbcType=VARCHAR}, 
+      #{upassword,jdbcType=VARCHAR}, #{uname,jdbcType=VARCHAR}, #{ustatus,jdbcType=BIT}, 
+      #{uliaisons,jdbcType=VARCHAR}, #{uliaisonstel,jdbcType=VARCHAR}, #{ucellphone,jdbcType=VARCHAR}, 
+      #{uemail,jdbcType=VARCHAR}, #{createuser,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{updateuser,jdbcType=VARCHAR}, #{udeleteflag,jdbcType=BIT}, #{upadtetime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.housecenter.entity.DlfcUser" >
+    insert into dlfc_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="uno != null" >
+        uNo,
+      </if>
+      <if test="uaccount != null" >
+        uAccount,
+      </if>
+      <if test="upassword != null" >
+        uPassword,
+      </if>
+      <if test="uname != null" >
+        uName,
+      </if>
+      <if test="ustatus != null" >
+        uStatus,
+      </if>
+      <if test="uliaisons != null" >
+        uLiaisons,
+      </if>
+      <if test="uliaisonstel != null" >
+        uLiaisonsTel,
+      </if>
+      <if test="ucellphone != null" >
+        uCellphone,
+      </if>
+      <if test="uemail != null" >
+        uEmail,
+      </if>
+      <if test="createuser != null" >
+        createUser,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="updateuser != null" >
+        updateUser,
+      </if>
+      <if test="udeleteflag != null" >
+        uDeleteFlag,
+      </if>
+      <if test="upadtetime != null" >
+        upadteTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="uno != null" >
+        #{uno,jdbcType=VARCHAR},
+      </if>
+      <if test="uaccount != null" >
+        #{uaccount,jdbcType=VARCHAR},
+      </if>
+      <if test="upassword != null" >
+        #{upassword,jdbcType=VARCHAR},
+      </if>
+      <if test="uname != null" >
+        #{uname,jdbcType=VARCHAR},
+      </if>
+      <if test="ustatus != null" >
+        #{ustatus,jdbcType=BIT},
+      </if>
+      <if test="uliaisons != null" >
+        #{uliaisons,jdbcType=VARCHAR},
+      </if>
+      <if test="uliaisonstel != null" >
+        #{uliaisonstel,jdbcType=VARCHAR},
+      </if>
+      <if test="ucellphone != null" >
+        #{ucellphone,jdbcType=VARCHAR},
+      </if>
+      <if test="uemail != null" >
+        #{uemail,jdbcType=VARCHAR},
+      </if>
+      <if test="createuser != null" >
+        #{createuser,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateuser != null" >
+        #{updateuser,jdbcType=VARCHAR},
+      </if>
+      <if test="udeleteflag != null" >
+        #{udeleteflag,jdbcType=BIT},
+      </if>
+      <if test="upadtetime != null" >
+        #{upadtetime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.housecenter.entity.DlfcUser" >
+    update dlfc_user
+    <set >
+      <if test="uno != null" >
+        uNo = #{uno,jdbcType=VARCHAR},
+      </if>
+      <if test="uaccount != null" >
+        uAccount = #{uaccount,jdbcType=VARCHAR},
+      </if>
+      <if test="upassword != null" >
+        uPassword = #{upassword,jdbcType=VARCHAR},
+      </if>
+      <if test="uname != null" >
+        uName = #{uname,jdbcType=VARCHAR},
+      </if>
+      <if test="ustatus != null" >
+        uStatus = #{ustatus,jdbcType=BIT},
+      </if>
+      <if test="uliaisons != null" >
+        uLiaisons = #{uliaisons,jdbcType=VARCHAR},
+      </if>
+      <if test="uliaisonstel != null" >
+        uLiaisonsTel = #{uliaisonstel,jdbcType=VARCHAR},
+      </if>
+      <if test="ucellphone != null" >
+        uCellphone = #{ucellphone,jdbcType=VARCHAR},
+      </if>
+      <if test="uemail != null" >
+        uEmail = #{uemail,jdbcType=VARCHAR},
+      </if>
+      <if test="createuser != null" >
+        createUser = #{createuser,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateuser != null" >
+        updateUser = #{updateuser,jdbcType=VARCHAR},
+      </if>
+      <if test="udeleteflag != null" >
+        uDeleteFlag = #{udeleteflag,jdbcType=BIT},
+      </if>
+      <if test="upadtetime != null" >
+        upadteTime = #{upadtetime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.housecenter.entity.DlfcUser" >
+    update dlfc_user
+    set uNo = #{uno,jdbcType=VARCHAR},
+      uAccount = #{uaccount,jdbcType=VARCHAR},
+      uPassword = #{upassword,jdbcType=VARCHAR},
+      uName = #{uname,jdbcType=VARCHAR},
+      uStatus = #{ustatus,jdbcType=BIT},
+      uLiaisons = #{uliaisons,jdbcType=VARCHAR},
+      uLiaisonsTel = #{uliaisonstel,jdbcType=VARCHAR},
+      uCellphone = #{ucellphone,jdbcType=VARCHAR},
+      uEmail = #{uemail,jdbcType=VARCHAR},
+      createUser = #{createuser,jdbcType=VARCHAR},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      updateUser = #{updateuser,jdbcType=VARCHAR},
+      uDeleteFlag = #{udeleteflag,jdbcType=BIT},
+      upadteTime = #{upadtetime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

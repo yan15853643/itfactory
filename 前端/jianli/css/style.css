@@ -1,0 +1,107 @@
+*{
+    padding: 0;
+    margin:0;
+    font-family: "微软雅黑";
+    font-size: 14px;
+    font-weight: normal;
+    list-style: none;
+}
+body{
+    background: aliceblue;
+}
+.wrap{
+    width: 920px;
+    height:1280px;
+    border: 1px solid lightblue;
+    margin: 0 auto;
+    padding: 60px 40px;
+}
+.liuyang-img{
+    width: 155px;
+    height:209px;
+    overflow: hidden;
+}
+.liuyang-img img{
+    width: 100%;
+}
+.liuyang-msg{
+    width: 765px;
+}
+.liuyang-fl{
+    float: left;
+}
+.liuyang-fr{
+    float: right;
+}
+.cl-both{
+    clear: both;
+    width: 0 !important;
+}
+.name-box{
+    width:705px;
+    height:50px;
+    padding: 20px 30px 10px 30px;
+    border-bottom: 4px solid black;
+}
+.liuyang-name{
+    vertical-align: bottom;
+    position: relative;
+    bottom: -18px;
+}
+.liuyang-name span:first-child{
+    font-size: 24px;
+}
+.liuyang-jianli div:last-child{
+    font-size: 24px;
+}
+.liuyang-jianli div{
+    text-align: right;
+}
+.other-msg{
+    padding: 20px;
+}
+.other-msg>div{
+    width: 50%;
+}
+.other-msg li{
+    margin-bottom: 10px;
+}
+.other-msg li pre{
+    font-size: 16px;
+}
+.row{
+    margin: 30px 0;
+}
+.row>div{
+    width: 40%;
+    float: left;
+    padding: 0 5%;
+}
+.max-row>div{
+    width: 90%;
+    float: left;
+    padding: 0 5%;
+}
+.row .row-title{
+    width: 100%;
+    height: auto;
+}
+.row ul{
+    padding: 20px;
+}
+.row li{
+    margin-bottom: 20px;
+}
+.max-row ul{
+    padding: 20px;
+}
+.max-row li{
+    margin-bottom: 20px;
+}
+* ul li:last-child{
+    margin-bottom: 0;
+}
+* ul{
+    padding-bottom:0 !important;
+    margin-bottom: 0 !important;
+}
